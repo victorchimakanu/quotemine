@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "asOf": "2026-10-21T09:00:00.000Z",
+  "currency": "USD",
+  "taxBasisPoints": 750,
+  "items": [
+    { "sku": "CHAIR-BLUE", "unitCents": 4250 },
+    { "sku": "CHAIR-RED", "unitCents": 4250 },
+    { "sku": "TABLE-WHITE", "unitCents": 8900 }
+  ]
+}

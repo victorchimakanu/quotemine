@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5ee">
+  <meta name="description" content="Your prices, your control. A local quote desk that checks stock, price and delivery before you review the draft.">
+  <title>QuoteMine · Your prices, your control</title>
+  <link rel="preload" href="/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#quote-form">Skip to your quote desk</a>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">qm<span></span></span>
+        <div><h1>QuoteMine<span class="brand-period">.</span></h1><p>Your prices, your control.</p></div>
+      </div>
+      <a class="workshop-link" href="https://github.com/victorchimakanu/quotemine" target="_blank" rel="noreferrer"><span>Source code</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a>
+    </header>
+    <main>
+      <div class="desk-heading">
+        <div><p class="eyebrow">THE QUOTE DESK</p><h2>A quote you can stand behind.</h2><p>Confirm the order. Check the facts. Keep the final say.</p></div>
+        <span class="demo-badge"><span aria-hidden="true"></span>Synthetic shop data</span>
+      </div>
+      <section class="model-bar" aria-labelledby="model-title">
+        <span class="engine-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span>
+        <div class="engine-info"><h2 id="model-title">Your local engine <span id="engine-state" class="engine-state">Checking</span></h2><p id="model-status" role="status">Checking model status…</p></div>
+        <div class="model-actions"><button id="load-model" type="button" class="button-ink">Load local model <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M5 11l5 5 5-5"/></svg></button><button id="unload-model" class="button-text" type="button" disabled>Unload</button></div>
+        <details class="engine-details"><summary>About this engine</summary><p>Qwen3 1.7B runs on this device through QVAC. First load downloads model weights unless they are already cached. Customer text stays in this app. Close other model apps if memory is tight.</p></details>
+      </section>
+      <div class="workspace">
+        <section class="request-editor" aria-labelledby="request-title">
+          <div class="section-heading"><span class="section-number">01</span><div><p class="eyebrow">THE ORDER</p><h2 id="request-title">Confirm the request</h2></div></div>
+          <form id="quote-form">
+            <div class="field-block"><label for="message">Customer message</label><textarea id="message" name="message" rows="3" maxlength="2000" required>I need six blue chairs delivered Friday to the central zone.</textarea></div>
+            <div class="confirm-heading"><span>THE DETAILS THAT DRIVE YOUR QUOTE</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 10 3 3 7-7"/></svg></div>
+            <p class="hint confirm-hint">Check these fields. They control the checks.</p>
+            <div class="field-pair product-pair"><div><label for="sku">Product</label><select id="sku" name="sku" required></select></div><div><label for="quantity">Quantity</label><input id="quantity" name="quantity" type="number" min="1" max="100" step="1" value="6" required></div></div>
+            <div class="field-pair"><div><label for="zone">Delivery zone</label><select id="zone" name="zone" required></select></div><div><label for="date">Delivery date <span class="label-note">UTC</span></label><input id="date" name="deliveryDate" type="date" required></div></div>
+            <button id="prepare" class="button-quote" type="submit" disabled><span>Prepare draft quote</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14M12 5l5 5-5 5"/></svg></button>
+            <div class="try-row"><p>Try a constraint, too.</p><button id="short-stock" type="button" class="button-text">Try low stock <span aria-hidden="true">↗</span></button></div>
+          </form>
+          <p id="request-error" class="error-message" role="alert" hidden></p>
+          <div class="ownership-note"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="8" width="12" height="9" rx="2"/><path d="M6.5 8V5a3.5 3.5 0 0 1 7 0v3M10 12v2"/></svg><p>On your device. Under your review.<br><span>Quotes are never sent or reserved by this app.</span></p></div>
+        </section>
+        <section class="quote-sheet" aria-labelledby="result-title" id="result-region" aria-live="polite" aria-busy="false">
+          <div class="sheet-masthead"><div><p class="eyebrow">PREPARED WITH QUOTEMINE</p><h2 id="result-title">Your estimate</h2></div><span class="draft-stamp">DRAFT</span></div>
+          <div id="empty-result" class="empty-result">
+            <div class="estimate-icon" aria-hidden="true"><svg viewBox="0 0 48 56"><path d="M7 2h24l10 10v41H7zM31 2v11h10M15 23h18M15 30h18M15 37h8"/><path class="estimate-check" d="m25 44 4 4 8-9"/></svg></div>
+            <h3 id="empty-title">The details first.<br>The quote next.</h3>
+            <p id="empty-message">Load your local model, then prepare a draft to check stock, pricing and delivery.</p>
+            <div class="awaiting-checks"><span><i aria-hidden="true"></i>Stock</span><span><i aria-hidden="true"></i>Price</span><span><i aria-hidden="true"></i>Delivery</span></div>
+            <span class="awaiting-caption">YOUR CHECKS WILL APPEAR HERE</span>
+          </div>
+          <div id="result" class="quote-result" hidden>
+            <p id="result-status" class="result-status"></p>
+            <ul id="problems" class="problems" hidden></ul>
+            <div id="verified-checks" class="verified-checks"></div>
+            <div id="estimate-content" hidden>
+              <div class="estimate-product"><span class="product-symbol" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 16V5h16v11M6 17h20v5H6zM9 22v6M23 22v6M12 9h8"/></svg></span><div><h3 id="estimate-item-name"></h3><p id="estimate-item-detail"></p></div></div>
+              <dl class="estimate-lines"><div><dt>Items subtotal</dt><dd id="estimate-subtotal"></dd></div><div><dt id="estimate-tax-label">Item tax</dt><dd id="estimate-tax"></dd></div><div><dt>Delivery</dt><dd id="estimate-delivery"></dd></div></dl>
+              <div class="estimate-total"><span>Total estimate <small id="estimate-currency"></small></span><strong id="estimate-total"></strong></div>
+              <div class="delivery-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 7h12v11H2zM14 11h4l4 4v3h-8M5 18a2 2 0 1 0 4 0M16 18a2 2 0 1 0 4 0"/></svg><div><strong id="estimate-delivery-date"></strong><p id="estimate-delivery-window"></p></div></div>
+            </div>
+            <div class="quote-actions"><button id="copy-quote" type="button" class="button-ink" disabled><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1"/><path d="M12 7V3H3v9h4"/></svg>Copy draft</button><button id="download-quote" type="button" class="button-text" disabled>Download .txt <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10M6 9l4 4 4-4M4 15v2h12v-2"/></svg></button></div>
+            <p id="copy-status" class="copy-status" role="status"></p>
+            <details class="model-note"><summary>Model note <span>unverified</span></summary><p id="model-note"></p></details>
+            <details class="plain-draft"><summary>View plain text draft</summary><pre id="quote-text"></pre></details>
+          </div>
+          <div class="sheet-footnote"><span>USD · 7.5% demo item tax</span><p>Synthetic data. Stock and delivery are not reserved.<br>Review every draft before sharing.</p></div>
+        </section>
+      </div>
+      <section class="trace-section" aria-labelledby="trace-title">
+        <div class="trace-heading"><div class="section-heading"><span class="section-number">02</span><div><p class="eyebrow">THE WORKING</p><h2 id="trace-title">Every check, in the open.</h2></div></div><span class="trace-tag">Actual model calls</span></div>
+        <p id="trace-summary" class="trace-summary">No calls yet. Your model will choose the tools; this ledger will show the actual calls.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Tool call trace, scroll horizontally on smaller screens"><table><thead><tr><th scope="col">Turn</th><th scope="col">Tool</th><th scope="col">Confirmed arguments</th><th scope="col">Result</th><th scope="col">Handler time</th></tr></thead><tbody id="trace-body"></tbody></table></div>
+        <p id="trace-empty" class="trace-empty">Stock, pricing and delivery. A clear record of what was checked.</p>
+        <details id="raw-details" class="raw-details" hidden><summary>Inspect full results and timings <span aria-hidden="true">↗</span></summary><pre id="raw-output"></pre></details>
+      </section>
+      <footer><p><strong>QuoteMine.</strong> Yours to review. Yours to share.</p><span>Built with QVAC SDK 0.22.0 · Runs locally</span></footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "quotemine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Your prices, your control. A local quote desk built with QVAC.",
+  "license": "MIT",
+  "author": "Victor Kanu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorchimakanu/quotemine.git"
+  },
+  "engines": {
+    "node": "^22.21.0 || >=24.9.0"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test shared/*.test.mjs src/test/*.test.mjs"
+  },
+  "dependencies": {
+    "@qvac/sdk": "0.22.0",
+    "bare-runtime": "1.35.0",
+    "bare-tls": "3.1.12"
+  }
+}

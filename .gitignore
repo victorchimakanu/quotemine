@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
+.qvac/
+models/
+*.gguf
+*.safetensors
+*.onnx
+docs/*.mp4

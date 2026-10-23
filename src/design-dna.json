@@ -1,0 +1,420 @@
+{
+  "meta": {
+    "name": "QuoteMine: The Independent Quote Desk",
+    "description": "An independent merchant's focused quote desk, combining a practical order editor with a precise paper estimate. The design follows the product's purpose and name.",
+    "source_references": [
+      "QuoteMine product name",
+      "Tagline: Your prices, your control.",
+      "A modern independent merchant's quote desk"
+    ],
+    "created_at": "2026-10-22"
+  },
+  "design_system": {
+    "color": {
+      "palette_type": "analogous",
+      "primary": {
+        "hex": "#202820",
+        "role": "Ink foreground, masthead, primary action and strong rules"
+      },
+      "secondary": {
+        "hex": "#616c5a",
+        "role": "Olive gray supporting text and quiet detail, darkened for AA on the elevated work surface"
+      },
+      "accent": {
+        "hex": "#f0ca50",
+        "role": "Merchant's saffron marker, brand tile and quote action"
+      },
+      "neutral": {
+        "scale": [
+          "#ffffff",
+          "#f6f5ee",
+          "#eeeee5",
+          "#dedfd4",
+          "#b5bbac",
+          "#858d7f",
+          "#616c5a",
+          "#202820"
+        ],
+        "usage": "Light warm work surface, white estimate paper, olive gray rules, ink foreground. The darkest neutral is the default text color."
+      },
+      "semantic": {
+        "success": "#367244",
+        "warning": "#775817",
+        "error": "#a13228",
+        "info": "#445e6a"
+      },
+      "surface": {
+        "background": "#f6f5ee",
+        "card": "#ffffff",
+        "elevated": "#eeeee5"
+      },
+      "contrast_strategy": "Dark ink on warm light surfaces. Saffron always carries ink text. Secondary text remains AA against both paper and workspace. Semantic messages include text and shape, never color alone.",
+      "field_border": {
+        "hex": "#858d7f",
+        "role": "Input, select and textarea boundaries with at least 3:1 contrast against white and warm desk surfaces."
+      }
+    },
+    "typography": {
+      "type_scale": {
+        "display": {
+          "size": "40px",
+          "weight": 650,
+          "line_height": 1.15,
+          "tracking": "-0.04em"
+        },
+        "heading_1": {
+          "size": "30px",
+          "weight": 650,
+          "line_height": 1.25,
+          "tracking": "-0.035em"
+        },
+        "heading_2": {
+          "size": "21px",
+          "weight": 650,
+          "line_height": 1.35,
+          "tracking": "-0.025em"
+        },
+        "heading_3": {
+          "size": "16px",
+          "weight": 650,
+          "line_height": 1.4,
+          "tracking": "-0.015em"
+        },
+        "body": {
+          "size": "14px",
+          "weight": 450,
+          "line_height": 1.6,
+          "tracking": "0em"
+        },
+        "body_small": {
+          "size": "13px",
+          "weight": 450,
+          "line_height": 1.6,
+          "tracking": "0em"
+        },
+        "caption": {
+          "size": "12px",
+          "weight": 500,
+          "line_height": 1.5,
+          "tracking": "0em"
+        },
+        "overline": {
+          "size": "10px",
+          "weight": 700,
+          "line_height": 1.5,
+          "tracking": "0.12em"
+        }
+      },
+      "font_families": {
+        "heading": "Manrope, sans-serif",
+        "body": "Manrope, sans-serif",
+        "mono": "ui-monospace, SFMono-Regular, Menlo, monospace"
+      },
+      "font_style_notes": "A locally hosted variable Manrope supplies compact geometric warmth. Tabular numbers and restrained overlines make the estimate feel exact without a financial dashboard aesthetic."
+    },
+    "spacing": {
+      "base_unit": "4px",
+      "scale": [
+        "4px",
+        "8px",
+        "12px",
+        "16px",
+        "20px",
+        "24px",
+        "32px",
+        "40px",
+        "48px",
+        "64px"
+      ],
+      "content_density": "comfortable",
+      "section_rhythm": "Compact 64px masthead, 32px between functional sections, 24px within the editor, and 12px between estimate rows. Avoid giant empty hero space."
+    },
+    "layout": {
+      "grid_system": "A centered workspace with two asymmetric columns: confirmed request on the left, paper estimate on the right. A full-width ledger follows.",
+      "max_content_width": "1232px",
+      "columns": "2 on desktop, 1 below 880px",
+      "gutter": "48px desktop, 24px compact desktop, 20px mobile",
+      "breakpoints": {
+        "mobile": "540px",
+        "tablet": "880px",
+        "desktop": "1120px"
+      },
+      "alignment_tendency": "strict grid with an asymmetric workbench"
+    },
+    "shape": {
+      "border_radius": {
+        "small": "4px",
+        "medium": "8px",
+        "large": "12px",
+        "pill": "999px"
+      },
+      "border_usage": "Fine 1px olive gray borders on inputs and white paper; strong 2px ink divider before totals",
+      "divider_style": "Solid ledger rules, occasional dashed paper divider before the total"
+    },
+    "elevation": {
+      "shadow_style": "soft diffused",
+      "levels": {
+        "low": "0 2px 5px #20282008",
+        "medium": "0 12px 32px #2028200a",
+        "high": "0 20px 48px #20282014"
+      },
+      "depth_cues": "A single raised white estimate sheet above the warm desktop; the request editor remains flat."
+    },
+    "iconography": {
+      "style": "Simple functional outlined icons with square joins softened at ends",
+      "stroke_weight": "1.6px",
+      "size_scale": [
+        "14px",
+        "18px",
+        "20px",
+        "32px"
+      ],
+      "preferred_set": "Small original inline SVG shapes, not a dependency"
+    },
+    "motion": {
+      "easing": "cubic-bezier(0.2,0.8,0.2,1)",
+      "duration_scale": {
+        "micro": "140ms",
+        "normal": "220ms",
+        "macro": "360ms"
+      },
+      "entrance_pattern": "A short result fade when the real response arrives",
+      "exit_pattern": "Immediate state change on submission",
+      "philosophy": "Minimal functional motion. Respect prefers-reduced-motion and communicate every state in text."
+    },
+    "components": {
+      "button_style": "Saffron filled quote action with ink text, ink filled model-load action, and quiet underlined secondary actions. Minimum 44px hit targets.",
+      "input_style": "White rectangular fields with 4px corners and olive rules; labels have small index and uppercase captions. Dark focus ring. Dedicated #858d7f control borders meet non-text contrast; decorative rules remain lighter.",
+      "card_style": "Only the estimate is a raised white sheet. Editor and trace use whitespace and rules rather than nested generic cards.",
+      "navigation_pattern": "Compact branded masthead with a link to the source repository",
+      "modal_style": "No modal is required; technical explanations use native details disclosures",
+      "list_style": "Numbered confirmation group, three verified-check rows, ledger line items and a complete actual tool trace",
+      "component_notes": "No simulated totals or generated quote initially. Quote status, inventory and prices appear only from validated API results. Copy and download stay disabled until a valid draft exists. Low-stock requests receive a review state with no amount."
+    }
+  },
+  "design_style": {
+    "aesthetic": {
+      "mood": [
+        "capable",
+        "warm",
+        "independent",
+        "precise"
+      ],
+      "visual_metaphor": "An independent merchant's counter: order on the left, estimate paper on the right",
+      "era_influence": "Contemporary utilitarian software with understated printed invoice details",
+      "genre": "Independent commerce workbench",
+      "personality_traits": [
+        "confident",
+        "plainspoken",
+        "meticulous",
+        "resourceful"
+      ],
+      "adjectives": [
+        "tactile",
+        "composed",
+        "practical",
+        "authored"
+      ]
+    },
+    "visual_language": {
+      "complexity": "moderate",
+      "ornamentation": "subtle accents",
+      "whitespace_usage": "Comfortable input groups and restrained page margins; denser tabular data stays inside the trace",
+      "visual_weight_distribution": "Balanced editor and estimate with saffron concentrated on the main action and compact brand mark",
+      "focal_strategy": "The white estimate surface leads to the real total when ready; the saffron action leads the empty state",
+      "contrast_level": "Strong ink text, quieter fine rules, one controlled saffron accent",
+      "texture_usage": "No textures. Paper is communicated by white space, thin rules and a small folded-corner motif."
+    },
+    "composition": {
+      "hierarchy_method": "Typographic scale, small uppercase section markers and rule weight",
+      "balance_type": "asymmetric",
+      "flow_direction": "Read and confirm the order left to right, then inspect the estimate and supporting trace",
+      "grouping_strategy": "Fieldsets, aligned labels, consistent vertical spacing and ledger rows",
+      "negative_space_role": "Separate confirmation, decision and evidence without adding container clutter"
+    },
+    "imagery": {
+      "photo_treatment": "No photography",
+      "illustration_style": "A small original outlined estimate document in the empty state",
+      "graphic_elements": "Saffron QM maker's tile, compact line icons, document corner and ledger rules",
+      "pattern_usage": "No decorative background patterns",
+      "image_shape": "No raster assets; line icons retain native aspect ratios"
+    },
+    "interaction_feel": {
+      "feedback_style": "Plain text plus a small state marker. A three-check strip reports only real facts. Clear review state blocks invalid drafts.",
+      "hover_behavior": "Button color darkens slightly, secondary links underline, no movement of working surfaces",
+      "transition_personality": "snappy",
+      "loading_style": "A bounded CSS spinner beside a written stage, a busy estimate panel and disabled duplicate actions",
+      "microinteraction_density": "low"
+    },
+    "brand_voice_in_ui": {
+      "tone": "Independent, assured and useful",
+      "formality": "Conversational business language",
+      "cta_style": "Direct imperative: Prepare draft quote, Load local model, Copy draft",
+      "empty_state_approach": "Show an unfilled estimate with no invented amounts, explain the next useful action and name the checks",
+      "error_tone": "Direct and recoverable. State the constraint, preserve the confirmed inputs and offer a useful next action."
+    }
+  },
+  "visual_effects": {
+    "overview": {
+      "effect_intensity": "none",
+      "performance_tier": "lightweight",
+      "fallback_strategy": "All content and controls remain available with static CSS; reduced motion disables the busy spinner and fade",
+      "primary_technology": "CSS only"
+    },
+    "background_effects": {
+      "type": "none",
+      "description": "Solid warm desktop surface only",
+      "technology": "CSS",
+      "params": {
+        "color_palette": [
+          "#f6f5ee"
+        ],
+        "speed": 0,
+        "density": 0,
+        "opacity": 1,
+        "blend_mode": "normal"
+      }
+    },
+    "particle_systems": {
+      "enabled": false,
+      "type": "none",
+      "description": "No particles in a focused quoting workspace",
+      "technology": "none",
+      "params": {
+        "count": 0,
+        "shape": "none",
+        "size_range": [
+          0,
+          0
+        ],
+        "movement_pattern": "none",
+        "color_behavior": "none",
+        "interaction": "none",
+        "spawn_area": "none"
+      }
+    },
+    "3d_elements": {
+      "enabled": false,
+      "type": "none",
+      "description": "No 3D rendering",
+      "technology": "none",
+      "params": {
+        "renderer": "none",
+        "lighting": "none",
+        "camera": "none",
+        "materials": [],
+        "geometry": "none",
+        "post_processing": [],
+        "interaction_model": "none"
+      }
+    },
+    "shader_effects": {
+      "enabled": false,
+      "type": "none",
+      "description": "No shaders",
+      "technology": "none",
+      "params": {
+        "uniforms": {},
+        "vertex_manipulation": "none",
+        "fragment_output": "none",
+        "noise_type": "none",
+        "distortion": "none"
+      }
+    },
+    "scroll_effects": {
+      "parallax": {
+        "enabled": false,
+        "layers": 0,
+        "depth_range": [
+          0,
+          0
+        ],
+        "speed_curve": "none"
+      },
+      "scroll_triggered_animations": {
+        "enabled": false,
+        "trigger_points": [],
+        "animation_type": "none",
+        "scrub_behavior": "none"
+      },
+      "scroll_morphing": {
+        "enabled": false,
+        "description": "Native document scrolling only"
+      }
+    },
+    "text_effects": {
+      "type": "none",
+      "description": "Stable readable typography",
+      "technology": "CSS",
+      "params": {
+        "split_strategy": "none",
+        "animation_per_unit": "none",
+        "stagger": 0,
+        "effect_style": "none"
+      }
+    },
+    "cursor_effects": {
+      "enabled": false,
+      "type": "none",
+      "description": "Native pointer remains visible",
+      "params": {
+        "shape": "native",
+        "size": "native",
+        "blend_mode": "normal",
+        "trail": "none",
+        "interaction_zone": "none"
+      }
+    },
+    "image_effects": {
+      "type": "none",
+      "description": "No raster effects",
+      "technology": "none",
+      "params": {
+        "filter_pipeline": [],
+        "hover_transform": "none",
+        "reveal_animation": "none",
+        "distortion_type": "none"
+      }
+    },
+    "glassmorphism_neumorphism": {
+      "enabled": false,
+      "style": "none",
+      "params": {
+        "blur_radius": "0px",
+        "transparency": 0,
+        "border_treatment": "Solid thin rules",
+        "shadow_type": "Single conventional paper shadow",
+        "light_source_angle": 90
+      }
+    },
+    "canvas_drawings": {
+      "enabled": false,
+      "type": "none",
+      "description": "No Canvas rendering",
+      "technology": "none",
+      "params": {
+        "draw_method": "none",
+        "animation_loop": false,
+        "color_scheme": [
+          "#202820",
+          "#f6f5ee",
+          "#f0ca50"
+        ],
+        "responsiveness": "CSS grid",
+        "interaction": "none"
+      }
+    },
+    "svg_animations": {
+      "enabled": false,
+      "type": "none",
+      "description": "Inline SVG icons are static",
+      "params": {
+        "animation_method": "none",
+        "path_morphing": false,
+        "stroke_animation": false,
+        "filter_effects": []
+      }
+    },
+    "composite_notes": "The intended craft comes from type, precise rules, trustworthy structured output and the contrast between warm desk and white estimate. Advanced rendering would distract from ownership and verified business facts. No palette measurement is claimed because no visual reference was supplied."
+  }
+}
