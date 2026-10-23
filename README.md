@@ -4,7 +4,7 @@
 
 A local quote desk for an independent shop. Confirm an order, let a QVAC model check stock, price and delivery, then review a clear draft with every check visible.
 
-![QuoteMine walkthrough](docs/walkthrough.gif)
+![QuoteMine walkthrough](https://raw.githubusercontent.com/victorchimakanu/quotemine/ae66a43/docs/walkthrough.gif)
 
 [Open the animation](docs/walkthrough.gif) · [View a still preview](docs/preview.png)
 
