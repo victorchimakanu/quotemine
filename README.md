@@ -4,7 +4,9 @@
 
 A local quote desk for an independent shop. Confirm an order, let a QVAC model check stock, price and delivery, then review a clear draft with every check visible.
 
-![QuoteMine walkthrough](docs/demo.gif)
+![QuoteMine walkthrough](docs/walkthrough.gif)
+
+[Open the animation](docs/walkthrough.gif) · [View a still preview](docs/preview.png)
 
 **Local model. Checked amounts. Your final say.** QuoteMine prepares drafts from synthetic shop data. It does not send quotes, reserve stock, book delivery or take payments.
 
